@@ -52,6 +52,6 @@ Generative AI (ChatGPT/Codex) was used to:
 - draft JavaScript for view switching, filters, chart switching and the modal chart preview; and
 - check the site against the assignment requirements.
 
-The supplied charts and analytical results came from my KNIME workflow and coursework notes. I reviewed reviewed the generated structure and am responsible for checking the final code, factual claims, accessibility, repository history and submitted deployment.
+The supplied charts and analytical results came from my KNIME workflow and coursework notes. I reviewed the generated structure and am responsible for checking the final code, factual claims, accessibility, repository history and submitted deployment.
 
 Using GenAI accelerated the first draft and made it easier to compare the implementation with the task requirements. The main limitation was that generated code still required manual checking: labels, data interpretations, file paths and interaction behaviour could not simply be assumed to be correct. The most useful approach was to give the AI the real assignment brief and source charts, then review the result section by section.
