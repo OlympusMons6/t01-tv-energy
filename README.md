@@ -4,9 +4,7 @@ A responsive three-view website for COS30045, built with HTML, CSS and JavaScrip
 
 ## Live site
 
-Current working preview: https://australian-tv-energy-explorer.excalor.chatgpt.site
-
-After importing this repository into Vercel, replace the preview address above with your public Vercel submission URL.
+Current working preview: t01-tv-energy.vercel.app
 
 ## Required views
 
@@ -26,10 +24,6 @@ assets/
 ├── power-logo.svg
 └── q1–q8 chart images
 ```
-
-## Run locally
-
-Open `index.html` in a browser, or serve the project folder with the VS Code Live Server extension.
 
 ## Requirements checklist
 
@@ -58,18 +52,6 @@ Generative AI (ChatGPT/Codex) was used to:
 - draft JavaScript for view switching, filters, chart switching and the modal chart preview; and
 - check the site against the assignment requirements.
 
-The supplied charts and analytical results came from the student’s KNIME workflow and coursework notes. The student reviewed the generated structure and is responsible for checking the final code, factual claims, accessibility, repository history and submitted deployment.
+The supplied charts and analytical results came from my KNIME workflow and coursework notes. I reviewed reviewed the generated structure and am responsible for checking the final code, factual claims, accessibility, repository history and submitted deployment.
 
 Using GenAI accelerated the first draft and made it easier to compare the implementation with the task requirements. The main limitation was that generated code still required manual checking: labels, data interpretations, file paths and interaction behaviour could not simply be assumed to be correct. The most useful approach was to give the AI the real assignment brief and source charts, then review the result section by section.
-
-## Suggested GitHub commit history
-
-1. `chore: initialise three-view website structure`
-2. `feat: add responsive navigation and page switching`
-3. `style: apply energy-themed responsive design`
-4. `feat: add television findings and chart interactions`
-5. `docs: add GenAI reflection and deployment notes`
-
-## Deployment
-
-Push the repository to GitHub and import it into Vercel. This package keeps `index.html` at the repository root, so it can be deployed as a plain static website with no build command. After deployment, paste the public URL into the **Live site** section above.
