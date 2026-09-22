@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title desc">
+  <title id="title">Power logo</title>
+  <desc id="desc">A blue power symbol with a lime energy spark.</desc>
+  <circle cx="32" cy="32" r="27" fill="#0b2d49"/>
+  <path d="M32 13v20" fill="none" stroke="#b8dc3d" stroke-width="7" stroke-linecap="round"/>
+  <path d="M21 20.5a19 19 0 1 0 22 0" fill="none" stroke="#ffffff" stroke-width="6" stroke-linecap="round"/>
+  <path d="m39 36-9 15 2-11h-7l9-15-2 11z" fill="#ffd34e"/>
+</svg>

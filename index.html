@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Explore Australian television screen technologies, sizes, brands and energy consumption through KNIME data visualisations.">
+  <meta name="theme-color" content="#0b2d49">
+  <title>Australian TV Energy Explorer</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%230b2d49'/%3E%3Cpath d='M32 12v22' stroke='%23b8dc3d' stroke-width='7' stroke-linecap='round'/%3E%3Cpath d='M20 20a20 20 0 1 0 24 0' fill='none' stroke='white' stroke-width='6' stroke-linecap='round'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="nav-shell">
+      <a class="brand" href="#home" data-route="home" aria-label="Power Data home">
+        <img src="assets/power-logo.svg" alt="" width="44" height="44">
+        <span><strong>POWER</strong><small>Data Explorer</small></span>
+      </a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav">
+        <span class="sr-only">Open navigation</span>
+        <span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span>
+      </button>
+      <nav id="primary-nav" class="primary-nav" aria-label="Primary navigation">
+        <a href="#home" data-route="home" aria-current="page">Home</a>
+        <a href="#televisions" data-route="televisions">Televisions</a>
+        <a href="#about" data-route="about">About Us</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content" tabindex="-1">
+    <section id="home" class="page-view is-active" data-page aria-labelledby="home-title">
+      <div class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow"><span></span> Australian appliance energy data</p>
+          <h1 id="home-title">What makes one television more energy efficient than another?</h1>
+          <p class="hero-lead">Explore how screen technology, size and brand relate to the energy performance of televisions available in Australia.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#televisions" data-route="televisions">Explore the findings <span aria-hidden="true">→</span></a>
+            <a class="text-link" href="#about" data-route="about">How the data was prepared</a>
+          </div>
+        </div>
+        <aside class="hero-panel" aria-label="Key findings">
+          <div class="signal-row"><span>Dataset snapshot</span><strong>Australian TVs</strong></div>
+          <div class="hero-stat"><strong>83%</strong><span>of available models use LCD (LED) technology</span></div>
+          <div class="mini-bars" aria-label="Relative frequency of LCD, LCD LED and OLED televisions">
+            <div><span>LCD (LED)</span><i style="--value: 83%"></i></div>
+            <div><span>LCD</span><i style="--value: 11%"></i></div>
+            <div><span>OLED</span><i style="--value: 6%"></i></div>
+          </div>
+          <p>LCD (LED) clearly dominates the Australian market represented in the dataset.</p>
+        </aside>
+      </div>
+
+      <div class="content-shell home-content">
+        <section class="section-block" aria-labelledby="snapshot-title">
+          <div class="section-heading split-heading">
+            <div>
+              <p class="eyebrow">At a glance</p>
+              <h2 id="snapshot-title">A market shaped by size</h2>
+            </div>
+            <p>The data shows a clear trade-off: larger screens generally require more operating power, while star ratings vary widely at nearly every size.</p>
+          </div>
+          <div class="stat-grid">
+            <article class="stat-card accent-blue"><span class="stat-number">3</span><h3>Screen technologies</h3><p>LCD, LCD (LED) and OLED models are present.</p></article>
+            <article class="stat-card accent-lime"><span class="stat-number">47</span><h3>Rounded screen sizes</h3><p>Available sizes range from about 16 to 116 inches.</p></article>
+            <article class="stat-card accent-yellow"><span class="stat-number">65″</span><h3>Most frequent size</h3><p>773 models are listed at this screen size.</p></article>
+            <article class="stat-card accent-teal"><span class="stat-number">71 W</span><h3>Lowest median power</h3><p>LCD has the lowest median among the three technologies.</p></article>
+          </div>
+        </section>
+
+        <section class="feature-band" aria-labelledby="story-title">
+          <div>
+            <p class="eyebrow light">The central pattern</p>
+            <h2 id="story-title">Bigger screens use more power.</h2>
+            <p>The screen-size and average-mode-power scatter plot shows a strong positive relationship. The pattern becomes especially visible above 65 inches.</p>
+            <a class="button button-light" href="#televisions" data-route="televisions" data-scroll-target="q5">See the evidence</a>
+          </div>
+          <figure class="feature-chart">
+            <img src="assets/q5-size-power.png" alt="Scatter plot showing average-mode power increasing as screen size increases" loading="lazy">
+            <figcaption>Screen size vs. average-mode power</figcaption>
+          </figure>
+        </section>
+
+        <section class="section-block process-block" aria-labelledby="process-title">
+          <div class="section-heading">
+            <p class="eyebrow">From records to insight</p>
+            <h2 id="process-title">A reproducible analysis process</h2>
+          </div>
+          <ol class="process-list">
+            <li><span>01</span><div><h3>Filter</h3><p>Keep records for televisions sold in Australia and currently available.</p></div></li>
+            <li><span>02</span><div><h3>Clean</h3><p>Remove duplicates, standardise brands and select relevant columns.</p></div></li>
+            <li><span>03</span><div><h3>Transform</h3><p>Convert screen measurements to rounded inches for comparison.</p></div></li>
+            <li><span>04</span><div><h3>Visualise</h3><p>Use bar, pie, scatter and box plots to answer focused questions.</p></div></li>
+          </ol>
+        </section>
+      </div>
+    </section>
+
+    <section id="televisions" class="page-view" data-page hidden aria-labelledby="tv-title">
+      <div class="page-intro">
+        <div class="content-shell">
+          <p class="eyebrow light">Television data story</p>
+          <h1 id="tv-title">Six questions about the Australian TV market</h1>
+          <p>Each visual answers a specific question using the cleaned and filtered television energy dataset.</p>
+        </div>
+      </div>
+
+      <div class="content-shell findings-shell">
+        <div class="filter-bar" aria-label="Filter findings by theme">
+          <span>Show:</span>
+          <button type="button" class="filter-button is-active" data-filter="all" aria-pressed="true">All findings</button>
+          <button type="button" class="filter-button" data-filter="market" aria-pressed="false">Market</button>
+          <button type="button" class="filter-button" data-filter="efficiency" aria-pressed="false">Efficiency</button>
+          <button type="button" class="filter-button" data-filter="relationship" aria-pressed="false">Relationships</button>
+        </div>
+
+        <div class="finding-list" id="findings-list">
+          <article class="finding-card" id="q1" data-category="market">
+            <div class="finding-copy">
+              <span class="question-number">Question 01 · Market</span>
+              <h2>Which screen technologies are available—and which is most frequent?</h2>
+              <p class="finding-answer"><strong>LCD (LED) dominates.</strong> It represents approximately 83% of the available Australian televisions, well ahead of LCD and OLED.</p>
+              <div class="data-fields"><span>Screen_Tech</span><span>Submit_ID</span><span>SoldIn</span></div>
+              <p class="chart-rationale">A bar chart supports precise comparison; the pie chart makes market share immediately visible.</p>
+            </div>
+            <div class="finding-visual">
+              <div class="chart-switcher" role="group" aria-label="Choose question one chart">
+                <button type="button" class="is-active" data-chart="assets/q1-bar.png" data-alt="Bar chart showing LCD LED as the most frequent technology, followed by LCD and OLED" aria-pressed="true">Bar</button>
+                <button type="button" data-chart="assets/q1-pie.png" data-alt="Pie chart showing LCD LED at approximately 83 percent of available Australian TVs" aria-pressed="false">Pie</button>
+              </div>
+              <button class="chart-open" type="button" aria-label="Enlarge chart for question 1">
+                <img src="assets/q1-bar.png" alt="Bar chart showing LCD LED as the most frequent technology, followed by LCD and OLED" loading="lazy">
+              </button>
+              <details><summary>Accessible data summary</summary><p>Three categories are present. LCD (LED) accounts for about 3,800 records; LCD about 570; OLED about 300.</p></details>
+            </div>
+          </article>
+
+          <article class="finding-card reverse" id="q2" data-category="market">
+            <div class="finding-copy">
+              <span class="question-number">Question 02 · Market</span>
+              <h2>What screen sizes are available—and which are most frequent?</h2>
+              <p class="finding-answer"><strong>Large screens lead the range.</strong> There are 47 rounded sizes, from about 16 to 116 inches. The most frequent are 65, 55 and 75 inches.</p>
+              <div class="metric-table" role="table" aria-label="Most frequent television sizes">
+                <div role="row"><span role="columnheader">Size</span><span role="columnheader">Models</span></div>
+                <div role="row"><span role="cell">65″</span><strong role="cell">773</strong></div>
+                <div role="row"><span role="cell">55″</span><strong role="cell">762</strong></div>
+                <div role="row"><span role="cell">75″</span><strong role="cell">629</strong></div>
+              </div>
+              <div class="data-fields"><span>screensize_inches</span><span>Submit_ID</span></div>
+            </div>
+            <div class="finding-visual">
+              <button class="chart-open" type="button" aria-label="Enlarge chart for question 2"><img src="assets/q2-sizes.png" alt="Bar chart comparing the number of television models at each rounded screen size" loading="lazy"></button>
+              <details><summary>Why this chart?</summary><p>A bar chart makes it possible to compare the number of available models across discrete screen-size categories.</p></details>
+            </div>
+          </article>
+
+          <article class="finding-card" id="q3" data-category="market">
+            <div class="finding-copy">
+              <span class="question-number">Question 03 · Market</span>
+              <h2>Which brands have the greatest number of different models?</h2>
+              <p class="finding-answer"><strong>KOGAN has the widest model range.</strong> It leads with 809 models, followed by LG with 723 and Samsung Electronics with 699.</p>
+              <div class="rank-list" aria-label="Top three brands by model count"><span><b>1</b>KOGAN <strong>809</strong></span><span><b>2</b>LG <strong>723</strong></span><span><b>3</b>Samsung Electronics <strong>699</strong></span></div>
+              <div class="data-fields"><span>Brand_Reg</span><span>Model_No</span></div>
+            </div>
+            <div class="finding-visual">
+              <button class="chart-open" type="button" aria-label="Enlarge chart for question 3"><img src="assets/q3-brands.png" alt="Bar chart ranking brands by number of distinct television models, led by KOGAN, LG and Samsung Electronics" loading="lazy"></button>
+              <details><summary>Why this chart?</summary><p>A descending bar chart makes the brand ranking and differences in model count easy to compare.</p></details>
+            </div>
+          </article>
+
+          <article class="finding-card reverse" id="q4" data-category="efficiency">
+            <div class="finding-copy">
+              <span class="question-number">Question 04 · Efficiency</span>
+              <h2>Which screen technology consumes the least power?</h2>
+              <p class="finding-answer"><strong>LCD has the lowest median average-mode power.</strong> Its median is about 71 W, compared with roughly 106 W for LCD (LED) and 113 W for OLED.</p>
+              <div class="data-fields"><span>Screen_Tech</span><span>Avg_mode_power</span><span>Median</span></div>
+              <p class="chart-note">This compares typical values within the dataset; it does not control for differences in screen size.</p>
+            </div>
+            <div class="finding-visual">
+              <button class="chart-open" type="button" aria-label="Enlarge chart for question 4"><img src="assets/q4-power.png" alt="Bar chart of median average-mode power showing LCD lowest, then LCD LED and OLED" loading="lazy"></button>
+              <details><summary>Why use the median?</summary><p>The median reduces the influence of unusually high-power outliers and better represents the typical model in each technology group.</p></details>
+            </div>
+          </article>
+
+          <article class="finding-card" id="q5" data-category="relationship">
+            <div class="finding-copy">
+              <span class="question-number">Question 05 · Relationship</span>
+              <h2>What is the relationship between screen size and power use?</h2>
+              <p class="finding-answer"><strong>Power consumption rises with screen size.</strong> The scatter plot shows a strong positive relationship, although models of the same size can still vary substantially.</p>
+              <div class="data-fields"><span>screensize_inches</span><span>Avg_mode_power</span></div>
+              <p class="chart-rationale">A scatter plot reveals the direction, strength and spread of the relationship between two numerical variables.</p>
+            </div>
+            <div class="finding-visual">
+              <button class="chart-open" type="button" aria-label="Enlarge chart for question 5"><img src="assets/q5-size-power.png" alt="Scatter plot showing a strong positive relationship between television screen size and average-mode power" loading="lazy"></button>
+              <details><summary>How to read it</summary><p>Points rise from the lower-left to the upper-right. Very large screens include the highest-power observations, reaching approximately 600 W.</p></details>
+            </div>
+          </article>
+
+          <article class="finding-card reverse" id="q6" data-category="relationship">
+            <div class="finding-copy">
+              <span class="question-number">Question 06 · Relationship</span>
+              <h2>What is the relationship between screen size and star rating?</h2>
+              <p class="finding-answer"><strong>There is no clear relationship.</strong> Large and small televisions both appear across a broad range of star ratings.</p>
+              <div class="data-fields"><span>screensize_inches</span><span>Star Rating Index</span></div>
+              <p class="chart-note">Screen size alone does not reliably predict the energy-efficiency rating of a television.</p>
+            </div>
+            <div class="finding-visual">
+              <button class="chart-open" type="button" aria-label="Enlarge chart for question 6"><img src="assets/q6-size-rating.png" alt="Scatter plot showing no clear relationship between television screen size and Star Rating Index" loading="lazy"></button>
+              <details><summary>How to read it</summary><p>The points form vertical bands at common screen sizes but do not create a consistent upward or downward trend.</p></details>
+            </div>
+          </article>
+        </div>
+
+        <section class="extended-analysis" aria-labelledby="extended-title">
+          <div class="section-heading split-heading">
+            <div><p class="eyebrow">Extended exploration</p><h2 id="extended-title">Brand-level power differences</h2></div>
+            <p>These additional views compare average-mode power across brands. Wide spreads and outliers suggest that model mix and screen size matter alongside brand.</p>
+          </div>
+          <div class="extended-grid">
+            <figure><button class="chart-open" type="button" aria-label="Enlarge brand power box plot"><img src="assets/q7-box.png" alt="Box plot comparing the distribution of average-mode power across television brands" loading="lazy"></button><figcaption>Power distributions vary substantially within brands.</figcaption></figure>
+            <figure><button class="chart-open" type="button" aria-label="Enlarge brand power bar chart"><img src="assets/q7-bar.png" alt="Bar chart comparing average-mode power across ten television brands" loading="lazy"></button><figcaption>The displayed brand averages range from about 130 W to 233 W.</figcaption></figure>
+          </div>
+        </section>
+
+        <section class="next-questions" aria-labelledby="next-title">
+          <div class="section-heading"><p class="eyebrow">Question 08</p><h2 id="next-title">What could be investigated next?</h2><p>The dataset supports further questions beyond the six core findings.</p></div>
+          <div class="question-grid">
+            <article><span>01</span><h3>Manufacturing vs. efficiency</h3><p>Does country of manufacture relate to star rating or comparative energy consumption?</p></article>
+            <article><span>02</span><h3>Standby power by technology</h3><p>Do screen technologies differ in passive standby power?</p></article>
+            <article><span>03</span><h3>Brand market strategy</h3><p>Which brands concentrate on particular sizes or high-star models?</p></article>
+            <article><span>04</span><h3>Regional availability</h3><p>What share of models is exclusive to Australia rather than sold internationally?</p></article>
+            <article><span>05</span><h3>Active standby trends</h3><p>How does active standby time vary, and does it lower annual consumption?</p></article>
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <section id="about" class="page-view" data-page hidden aria-labelledby="about-title">
+      <div class="page-intro about-intro">
+        <div class="content-shell">
+          <p class="eyebrow light">About the project</p>
+          <h1 id="about-title">Turning public energy records into understandable evidence</h1>
+          <p>This website was created for COS30045 to demonstrate HTML, CSS, JavaScript, data preparation and visual communication.</p>
+        </div>
+      </div>
+      <div class="content-shell about-shell">
+        <section class="about-grid" aria-labelledby="purpose-title">
+          <div><p class="eyebrow">Purpose</p><h2 id="purpose-title">A home for the analysis</h2></div>
+          <div class="prose"><p>The project investigates televisions available in the Australian market. It brings the charts produced during data exploration into a responsive website where the findings can be read as one connected story.</p><p>The three views are switched with JavaScript. CSS controls the visual design, hover and active navigation states, responsive layout and accessible focus styles.</p></div>
+        </section>
+
+        <section class="method-card" aria-labelledby="method-title">
+          <div class="method-heading"><p class="eyebrow light">Method</p><h2 id="method-title">Data preparation in KNIME</h2><p>The original television dataset contained 5,018 records and 32 columns.</p></div>
+          <ol>
+            <li><span>1</span><div><h3>Read and select</h3><p>Import the CSV and keep analysis-ready fields.</p></div></li>
+            <li><span>2</span><div><h3>Sort and deduplicate</h3><p>Remove duplicate television model records.</p></div></li>
+            <li><span>3</span><div><h3>Filter the market</h3><p>Retain available televisions sold in Australia.</p></div></li>
+            <li><span>4</span><div><h3>Standardise values</h3><p>Convert brand names to uppercase and screen size to rounded inches.</p></div></li>
+            <li><span>5</span><div><h3>Aggregate and chart</h3><p>Count, group and summarise records to answer each question.</p></div></li>
+          </ol>
+        </section>
+
+        <section class="about-grid disclosure" aria-labelledby="genai-title">
+          <div><p class="eyebrow">Academic transparency</p><h2 id="genai-title">GenAI acknowledgement</h2></div>
+          <div class="prose"><p>Generative AI was used to help structure and refine the HTML, CSS and JavaScript; organise the written findings; and improve responsive and accessible presentation. The dataset processing, analytical questions and supplied charts were reviewed against the KNIME workflow and coursework notes.</p><p>The final code and content should be reviewed by the student before submission, with the detailed reflection retained in the repository README.</p></div>
+        </section>
+
+        <section class="source-card" aria-labelledby="source-title">
+          <div><p class="eyebrow">Data source</p><h2 id="source-title">Australian television energy-rating data</h2></div>
+          <p>Column definitions can be checked against the Energy Rating Data Dictionary for Televisions. Important fields in this analysis include <code>SoldIn</code>, <code>Screen_Tech</code>, <code>screensize_inches</code>, <code>Avg_mode_power</code>, <code>Star Rating Index</code>, <code>Brand_Reg</code> and <code>Model_No</code>.</p>
+        </section>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-shell">
+      <div class="footer-brand"><img src="assets/power-logo.svg" alt="" width="38" height="38"><div><strong>POWER Data Explorer</strong><span>Australian television energy insights</span></div></div>
+      <p>© <span id="footer-year">2026</span> Haider Ali Shourov · Student ID 101216662</p>
+      <p class="footer-note">Developed with GenAI assistance. Analysis and final submission responsibility remain with the student.</p>
+    </div>
+  </footer>
+
+  <dialog class="chart-dialog" aria-labelledby="dialog-title">
+    <div class="dialog-bar"><h2 id="dialog-title">Chart preview</h2><button type="button" class="dialog-close" aria-label="Close chart preview">×</button></div>
+    <img src="" alt="">
+  </dialog>
+
+  <div class="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
